@@ -1,9 +1,9 @@
-import CardOne from "./StatsCard";
-import CardTwo from "./PlansCard";
+import HeadCard from "./StatsCard";
+import PlanCard from "./PlansCard";
 import CardThree from "./BigCard";
 
 module.exports = {
-  CardOne,
-  CardTwo,
-  CardThree
+  HeadCard,
+  PlanCard,
+  CardThree,
 };

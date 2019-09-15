@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import AppIntroSlider from "react-native-app-intro-slider";
-import { CardOne, CardThree, CardTwo } from "../components";
+import { HeadCard, CardThree, PlanCard } from "../components";
 import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 
 class Home extends Component {
   static navigationOptions = {
-    header: null
+    header: null,
   };
 
   state = {};
@@ -17,18 +17,19 @@ class Home extends Component {
           <Container>
             <Header>
               <Avatar source={require("../assets/images/morty.png")}></Avatar>
-              <Name>Hi, Uche</Name>
+              <Name>Hi, Uchechukwu</Name>
             </Header>
-            <CardOne />
+            <HeadCard />
             <ScrollContainer>
+              <Title>PLANS</Title>
               <ScrollView
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 pagingEnabled
                 indicatorStyle="black"
               >
-                <CardTwo />
-                <CardTwo />
+                <PlanCard />
+                <PlanCard />
               </ScrollView>
             </ScrollContainer>
 
@@ -44,8 +45,8 @@ const styles = StyleSheet.create({
   Scroll: {
     width: "100%",
     backgroundColor: "red",
-    height: 100
-  }
+    height: 100,
+  },
 });
 
 const Header = styled.View`
@@ -76,11 +77,16 @@ const Container = styled.View`
   background-color: #f8f8ff;
 `;
 
+const Title = styled.Text`
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+`;
+
 const ScrollContainer = styled.View`
   width: 100%;
   /* background-color: red; */
 
-  height: 140px;
+  height: 160px;
   margin-bottom: 5px;
 `;
 export default Home;
