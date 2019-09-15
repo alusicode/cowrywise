@@ -1,82 +1,75 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import styled from "styled-components";
 import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
-import { red, white } from "ansi-colors";
 
-class Plans extends Component {
-  static navigationOptions = {
-    header: null
-  };
+const Plans = ({ navigation }) => {
+  const [activeId, setActive] = useState(1);
 
-  state = {
-    activeTab: false
-  };
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <Container>
+        <Header style={styles.bbtm}>
+          <Title>Plans</Title>
+        </Header>
 
-  toggle = () => {
-    this.setState({
-      activeTab: !this.state.activeTab
-    });
-  };
+        <SwitchNav>
+          <TouchableOpacity
+            onPress={() => setActive(1)}
+            style={[styles.tab, activeId == 1 ? styles.switchBg : " "]}
+          >
+            <Button style={{ color: activeId == 1 ? "white" : "#0165fc" }}>
+              My Savings
+            </Button>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setActive(2)}
+            style={[styles.tab, activeId == 2 ? styles.switchBg : " "]}
+          >
+            <Button style={{ color: activeId == 2 ? "white" : "#0165fc" }}>
+              My Investments
+            </Button>
+          </TouchableOpacity>
+        </SwitchNav>
+        <ScrollView style={{ width: "100%" }}>
+          {activeId == 1 ? (
+            <TabTwo>
+              <Card></Card>
+              <Card></Card>
+              <Card></Card>
+            </TabTwo>
+          ) : (
+            <TabOne>
+              <Card></Card>
+            </TabOne>
+          )}
+        </ScrollView>
+      </Container>
+    </SafeAreaView>
+  );
+};
 
-  state = {};
-  render() {
-    const aT = this.state.activeTab;
-    return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <Container>
-          <Header style={styles.bbtm}>
-            <Title>Plans</Title>
-          </Header>
+Plans.navigationOptions = {
+  header: null,
+};
 
-          <SwitchNav>
-            <TouchableOpacity
-              onPress={this.toggle}
-              style={[styles.tab, aT ? " " : styles.switchBg]}
-            >
-              <Button>My Savings</Button>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={this.toggle}
-              style={[styles.tab, aT ? styles.switchBg : ""]}
-            >
-              <Button>My Investments</Button>
-            </TouchableOpacity>
-          </SwitchNav>
-          <ScrollView style={{ width: "100%" }}>
-            {this.state.activeTab ? (
-              <TabTwo>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-              </TabTwo>
-            ) : (
-              <TabOne>
-                <Card></Card>
-              </TabOne>
-            )}
-          </ScrollView>
-        </Container>
-      </SafeAreaView>
-    );
-  }
-}
+export default Plans;
 
 const styles = StyleSheet.create({
   bbtm: {
     borderBottomWidth: 1,
-    borderBottomColor: "rgba(0, 0, 0, 0.3)"
+    borderBottomColor: "rgba(0, 0, 0, 0.3)",
   },
   switchBg: {
-    backgroundColor: "#0165fc"
+    backgroundColor: "#0165fc",
   },
   tab: {
-    width: "50%"
-  }
+    width: "50%",
+  },
 });
 
 const Header = styled.View`
@@ -99,7 +92,7 @@ const Title = styled.Text`
 const Button = styled.Text`
   padding: 5px 10px;
   text-align: center;
-  color: white;
+  color: ${(props) => (props.on ? "white" : "red")};
 `;
 
 const SwitchNav = styled.View`
@@ -123,4 +116,3 @@ const Card = styled.View`
 const TabOne = styled.View``;
 
 const TabTwo = styled.View``;
-export default Plans;
