@@ -33,8 +33,8 @@ class Home extends Component {
               </ScrollView>
             </ScrollContainer>
 
-            <CardThree />
-            <CardThree />
+            <CardThree title="INVEST" />
+            <CardThree title="SMASH GOALS" />
           </Container>
         </ScrollView>
       </SafeAreaView>
