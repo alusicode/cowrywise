@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-const CardThree = () => {
+const CardThree = ({ title }) => {
   return (
     <Container>
-      <Title>STAY AHEAD</Title>
+      <Title>{title}</Title>
       <Card></Card>
     </Container>
   );
