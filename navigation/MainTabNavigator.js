@@ -2,14 +2,14 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import {
   createStackNavigator,
-  createBottomTabNavigator
+  createBottomTabNavigator,
 } from "react-navigation";
 import {
   PlansStack,
   HomeStack,
   ActionsStack,
   TransactionsStack,
-  StashStack
+  StashStack,
 } from "./Stacks";
 import Stash from "../screens/Stash";
 import Plans from "../screens/Plans";
@@ -17,12 +17,13 @@ import Transactions from "../screens/Transactions";
 import Actions from "../screens/Actions";
 
 const tabNavigator = createBottomTabNavigator({
-  Plans: PlansStack,
   Home: HomeStack,
+
+  Plans: PlansStack,
 
   Actions: ActionsStack,
   Transactions: TransactionsStack,
-  Stash: StashStack
+  Stash: StashStack,
 });
 
 export default tabNavigator;
