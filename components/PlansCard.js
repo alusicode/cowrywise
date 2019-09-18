@@ -10,8 +10,8 @@ const PlanCard = ({ exp, bal, interest }) => {
           <Figure>600,000</Figure>
         </Balance>
         <Interest>
-          <LTitle>Balance</LTitle>
-          <Figure>600,000</Figure>
+          <LTitle>Interest</LTitle>
+          <IFigure>11.5%</IFigure>
         </Interest>
       </Details>
     </Card>
@@ -25,6 +25,7 @@ const Card = styled.View`
   margin-left: 5px;
   margin-right: 15px;
   border-radius: 10px;
+  justify-content: space-between;
   padding: 10px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
 `;
@@ -37,14 +38,18 @@ const LTitle = styled.Text`
   color: blue;
   font-size: 12px;
 `;
-const Figure = styled.Text``;
+const IFigure = styled.Text`
+  color: green;
+`;
 
+const Figure = styled.Text``;
 const Details = styled.View`
   padding: 5px;
   flex-direction: row;
   align-items: baseline;
   margin-top: 10px;
-
+  flex: 1;
+  align-items: flex-end;
   border-top-color: rgba(0, 0, 0, 0.1);
   border-top-width: 0.5px;
 `;
@@ -52,12 +57,12 @@ const Details = styled.View`
 const Balance = styled.View`
   width: 50%;
   justify-content: flex-end;
-  border: 1px solid green;
 `;
 
 const Interest = styled.View`
   width: 50%;
-  border: 1px solid red;
+
+  align-items: flex-end;
 `;
 
 export default PlanCard;
