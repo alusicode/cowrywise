@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import AppIntroSlider from "react-native-app-intro-slider";
-import { HeadCard, CardThree, PlanCard } from "../components";
+import { HeadCard, CardThree, PlanCard } from "../components/cards";
 import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 
 class Home extends Component {

@@ -17,9 +17,8 @@ import Transactions from "../screens/Transactions";
 import Actions from "../screens/Actions";
 
 const tabNavigator = createBottomTabNavigator({
-  Home: HomeStack,
-
   Plans: PlansStack,
+  Home: HomeStack,
 
   Actions: ActionsStack,
   Transactions: TransactionsStack,
