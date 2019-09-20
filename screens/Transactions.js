@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { SafeAreaView, StyleSheet } from "react-native";
+import SegmentedControl from "../components/Segmented";
 
 const Transactions = () => {
   return (
@@ -9,6 +10,7 @@ const Transactions = () => {
         <Header style={styles.bbtm}>
           <Title>Transactions</Title>
         </Header>
+        <SegmentedControl />
       </Container>
     </SafeAreaView>
   );
